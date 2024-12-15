@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Check-In</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <button id="darkModeToggle">Toggle Dark Mode</button>
+        <h2>Welcome, {{ session['username'] }}</h2>
+        <a href="/logout" class="logout">Logout</a>
+
+        <h3>Check-In</h3>
+        <form method="POST">
+            <label for="mood">Mood:</label>
+            <select name="mood" id="mood" required>
+                <option value="happy">Happy</option>
+                <option value="okay">Okay</option>
+                <option value="sad">Sad</option>
+                <option value="stressed">Stressed</option>
+                <option value="anxious">Anxious</option>
+            </select>
+            <label for="stress_level">Stress Level (1-10):</label>
+            <input type="number" name="stress_level" id="stress_level" min="1" max="10" required>
+            <label for="thoughts">Your Thoughts:</label>
+            <textarea name="thoughts" id="thoughts" rows="4"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+
+        <h3>Your Past Check-Ins</h3>
+        <ul>
+            {% for checkin in checkins %}
+            <li>
+                <strong>Mood:</strong> {{ checkin.mood }}<br>
+                <strong>Stress Level:</strong> {{ checkin.stress_level }}<br>
+                <strong>Thoughts:</strong> {{ checkin.thoughts }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Button styles */
+button {
+    background: #5c6bc0;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: #333; /* Dark background */
+    color: white; /* White text */
+}
+
+/* Container in dark mode */
+.dark-mode .container {
+    background: #444; /* Slightly lighter dark background for the container */
+    color: white; /* White text */
+}
+
+/* Links in dark mode */
+.dark-mode a {
+    color: #76a9ff; /* Light blue for links */
+}
+
+button:hover {
+    background: #4f5b96;
+}
